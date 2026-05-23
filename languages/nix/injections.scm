@@ -169,22 +169,22 @@
         (#set! injection.language "rust")))
   ])
   (#match? @_func "(^|\\.)writeRust(Bin)?$")
-  (#set! injection.combined))((comment) @content
+  (#set! injection.combined))((comment) @injection.content
     (#set! injection.language "comment"))
 
 ; mark arbitary languages with a comment
 ((((comment) @injection.language) .
-    (indented_string_expression (string_fragment) @content))
+    (indented_string_expression (string_fragment) @injection.content))
     (#set! combined))
 
 (apply_expression
   function: (_) @_func
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "regex")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "regex")))
   ]
   (#match? @_func "(^|\\.)match$")
@@ -195,10 +195,10 @@
     (identifier) @_path)
   expression: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "bash")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "bash")))
   ]
   (#match? @_path "(^\\w+(Phase|Hook|Check)|(pre|post)[A-Z]\\w+|script)$"))
@@ -214,10 +214,10 @@
           (identifier) @_path)
         expression: [
           (string_expression
-            ((string_fragment) @content
+            ((string_fragment) @injection.content
               (#set! language "bash")))
           (indented_string_expression
-            ((string_fragment) @content
+            ((string_fragment) @injection.content
               (#set! language "bash")))
         ])))
   (#match? @_func "(^|\\.)writeShellApplication$")
@@ -230,10 +230,10 @@
       function: (_) @_func))
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "bash")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "bash")))
   ]
   (#match? @_func "(^|\\.)runCommand((No)?CC)?(Local)?$")
@@ -244,10 +244,10 @@
     function: (_) @_func)
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "bash")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "bash")))
   ])
   (#match? @_func "(^|\\.)write(Bash|Dash|ShellScript)(Bin)?$")
@@ -258,10 +258,10 @@
     function: (_) @_func)
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "fish")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "fish")))
   ])
   (#match? @_func "(^|\\.)writeFish(Bin)?$")
@@ -273,10 +273,10 @@
       function: (_) @_func))
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "haskell")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "haskell")))
   ])
   (#match? @_func "(^|\\.)writeHaskell(Bin)?$")
@@ -288,10 +288,10 @@
       function: (_) @_func))
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "javascript")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "javascript")))
   ])
   (#match? @_func "(^|\\.)writeJS(Bin)?$")
@@ -303,10 +303,10 @@
       function: (_) @_func))
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "perl")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "perl")))
   ])
   (#match? @_func "(^|\\.)writePerl(Bin)?$")
@@ -318,10 +318,10 @@
       function: (_) @_func))
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "python")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "python")))
   ])
   (#match? @_func "(^|\\.)write(PyPy|Python)[23](Bin)?$")
@@ -333,10 +333,10 @@
       function: (_) @_func))
   argument: [
     (string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "rust")))
     (indented_string_expression
-      ((string_fragment) @content
+      ((string_fragment) @injection.content
         (#set! language "rust")))
   ])
   (#match? @_func "(^|\\.)writeRust(Bin)?$")
